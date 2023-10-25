@@ -8,9 +8,6 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
 
     public Interfaz_operaciones() {
         initComponents();
-        Interfaz_salarios abrir = new Interfaz_salarios ();
-        abrir.setVisible(true);
-        this.setVisible(false);
     }
     
     @SuppressWarnings("unchecked")
@@ -28,6 +25,7 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
         eliminar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        ventana2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,12 +93,32 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
 
         jLabel3.setText("Ingrese un numero");
 
+        ventana2.setText("Cambiar ventana");
+        ventana2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ventana2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(resta)
+                                .addGap(33, 33, 33)
+                                .addComponent(multiplicacion)
+                                .addGap(35, 35, 35)
+                                .addComponent(division))
+                            .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(suma))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,29 +128,16 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
                                 .addComponent(numero2, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(resta)
-                                .addGap(33, 33, 33)
-                                .addComponent(multiplicacion))
-                            .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3))
+                        .addGap(40, 40, 40)
+                        .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ventana2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(suma))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(division)
-                .addGap(51, 51, 51))
+                        .addGap(93, 93, 93)
+                        .addComponent(jLabel3)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +161,9 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
                     .addComponent(multiplicacion)
                     .addComponent(division))
                 .addGap(18, 18, 18)
-                .addComponent(eliminar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eliminar)
+                    .addComponent(ventana2))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
@@ -176,6 +183,7 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_resultActionPerformed
 
+    // Suma
     private void sumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumaActionPerformed
         // TODO add your handling code here:
         
@@ -201,7 +209,8 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
         // de un tipo de dato diferente a un string
         result.setText(""+resultado);
     }//GEN-LAST:event_sumaActionPerformed
-
+    
+    // Resta
     private void restaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restaActionPerformed
         // TODO add your handling code here:
         
@@ -217,10 +226,10 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
         numero_1 = Integer.parseInt(numero1.getText());
         numero_2 = Integer.parseInt(numero2.getText());
         
-        // A una variable se le asigna la suma de las dos variables
+        // A una variable se le asigna la resta de las dos variables
         resultado = numero_1 - numero_2;
         
-        // Para observar el resultado de la suma en la caja correspondiente se
+        // Para observar el resultado de la resta en la caja correspondiente se
         // llama a la caja en la que se va mostrar el resultado seguido del
         // metodo setText para llamar la informacion de la variable. Esta 
         // variable debe ser concatenada con un string siempre la variable sea
@@ -229,6 +238,7 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
        
     }//GEN-LAST:event_restaActionPerformed
 
+    // Multiplicacion
     private void multiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplicacionActionPerformed
         // TODO add your handling code here:
         
@@ -244,10 +254,10 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
         numero_1 = Integer.parseInt(numero1.getText());
         numero_2 = Integer.parseInt(numero2.getText());
         
-        // A una variable se le asigna la suma de las dos variables
+        // A una variable se le asigna la multiplicacion de las dos variables
         resultado = numero_1 * numero_2;
         
-        // Para observar el resultado de la suma en la caja correspondiente se
+        // Para observar el resultado de la multi en la caja correspondiente se
         // llama a la caja en la que se va mostrar el resultado seguido del
         // metodo setText para llamar la informacion de la variable. Esta 
         // variable debe ser concatenada con un string siempre la variable sea
@@ -255,6 +265,7 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
         result.setText(""+resultado);
     }//GEN-LAST:event_multiplicacionActionPerformed
 
+    // Division
     private void divisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divisionActionPerformed
         // TODO add your handling code here:
         
@@ -270,10 +281,10 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
         numero_1 = Integer.parseInt(numero1.getText());
         numero_2 = Integer.parseInt(numero2.getText());
         
-        // A una variable se le asigna la suma de las dos variables
+        // A una variable se le asigna la division de las dos variables
         resultado = numero_1 / numero_2;
         
-        // Para observar el resultado de la suma en la caja correspondiente se
+        // Para observar el resultado de la division en la caja correspondiente se
         // llama a la caja en la que se va mostrar el resultado seguido del
         // metodo setText para llamar la informacion de la variable. Esta 
         // variable debe ser concatenada con un string siempre la variable sea
@@ -281,14 +292,39 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
         result.setText(""+resultado);
     }//GEN-LAST:event_divisionActionPerformed
 
+    // Boton Eliminar - Coloca todos los campos en blanco
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
         // TODO add your handling code here:
         
+        // Se llaman los campos a los que se van asignar un string vacio
+        // y se llama el metodo setText para que cuando se clickee el boton
+        // se envien los string vasios a cada uno de los campos que se asignaron
         numero1.setText("");
         numero2.setText("");
         result.setText("");
 
     }//GEN-LAST:event_eliminarActionPerformed
+    
+    // Boton que abre una segunda ventana 
+    private void ventana2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventana2ActionPerformed
+        // TODO add your handling code here:
+        
+        // Se pasa el proyecto en el que se esta trabajando seguido de una 
+        // variable, seguido de un objeto creado
+        Interfaz_salarios abrir = new Interfaz_salarios ();
+        
+        // La variable que contiene el objeto creado se le asigna el metodo set.
+        // Visible con un parametro booleano true que hace referencia a que si
+        // se mostrara cuando se ejecute el programa
+        abrir.setVisible(true);
+        
+        // Cuando se clickee el boton que abre una ventan se desea que la 
+        // ventana principal no se muestre, se realiza con la palabra reservada
+        // this que hace referencia a este archivo y se le asigna el metodo set.
+        // Visible y el parametro booleano false para que no se muestre por
+        // pantalla
+        this.setVisible(false);
+    }//GEN-LAST:event_ventana2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -337,5 +373,6 @@ public class Interfaz_operaciones extends javax.swing.JFrame {
     private javax.swing.JButton resta;
     private javax.swing.JTextField result;
     private javax.swing.JButton suma;
+    private javax.swing.JButton ventana2;
     // End of variables declaration//GEN-END:variables
 }
